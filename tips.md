@@ -42,6 +42,24 @@ git push将本地存档同步到 GitHub 云端。\
 4. 常见问题与技巧\
     Q1: 遇到 LF / CRLF 警告怎么办？warning: LF will be replaced by CRLF in ...处理： 直接忽略。这是 Git 在自动处理 Windows (CRLF) 和 Linux (LF) 的换行符差异，不影响代码运行。\
     Q2: 想要整理/移动文件？操作： 直接在 VS Code 文件管理器中拖拽移动或重命名。Git 处理： 移动完后，直接执行日常“三板斧” (add -> commit -> push)，Git 会自动识别出这是“移动”操作，而非“删除再新建”。\
-    Q3: 为什么空文件夹没上传？机制： Git 不追踪空文件夹。解决： 只有当文件夹里有文件时，它才会被上传。
+    Q3: 为什么空文件夹没上传？机制： Git 不追踪空文件夹。解决： 只有当文件夹里有文件时，它才会被上传。\
+    Q4: 报错 Connection was reset / Timed out？\
+fatal: unable to access ... : Recv failure: Connection was reset
+
+这是最常见的网络连接问题。
+
+解决 A（重置代理）： 先尝试清除旧设置（最常用）。
+
+git config --global --unset http.proxy\\
+git config --global --unset https.proxy
+
+
+解决 B（配置 VPN 端口）： 如果你开了加速器/VPN（假设端口是 7890），需要手动告诉 Git：
+
+git config --global http.proxy [http://127.0.0.1:7890](http://127.0.0.1:7890)\
+git config --global https.proxy [http://127.0.0.1:7890](http://127.0.0.1:7890)
+
+
+(注意：7890 需要换成你实际使用的代理软件端口号)
 
 祝代码无 Bug，GitHub 全绿！ 🟩🟩🟩
