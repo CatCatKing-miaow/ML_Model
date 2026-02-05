@@ -1,7 +1,7 @@
-# Machine Learning Notes
+# Learning Notes-无限进步！
 
-这是我学习吴恩达  **Machine Learning** 课程的代码仓库。
-
+这是我学习  **Computer Science** 的代码仓库。
+涵盖了pytorch，machine learning,算法等内容
 
 
 ## 🛠️ 环境配置
